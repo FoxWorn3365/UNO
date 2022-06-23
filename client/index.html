@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="description" content="UNO Online con amici">
+  <meta name="keywords" content="Federico, Cosma, Federico Cosma, Fcosma, Cloud, Fcosma Cloud, PHP">
+  <meta name="author" content="Federico Cosma">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNO | Fcosma Games</title>
+  <script src='https://foundation.fcosma.it/assets/js/http.js'></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdn.rgbcraft.com/static/fontawesome/css/all.min.css">
+ </head>
+ <body id='body'>
+  <div id='welcome'>
+   <h1>Benvenuto su UNO Js</h1>
+  </div>
+  <br><br><br>
+  <button class='w3-button w3-text-white w3-orange' onclick='newP()'>Crea una Partita</button>
+  <button class='w3-button w3-text-white w3-orange' onclick='join()'>Unisciti ad una esistente</button>
+  <div id='join'>
+   <h2>Unisciti ad una partitia già esistente</h2>
+   Inserisci l'ID: <input type='number' id='input_id'><br><br>
+   <button class='w3-button w3-text-white w3-orange' onclick='entra()'>Entra!</button>
+  </div>
+ </body>
+ <script>
+ function newP() {
+   var res = JSON.parse(http_request('https://api.fcosma.it/uno/newPartita'));
+   if (res.status == 200) {
+     window.location.href = 'https://fcosma.it/uno/game?partita=' + res.id;
+   }
+ }
+
+ function join() {
+   document.getElementById('join').style.display = "block";
+ }
+
+ function entra() {
+   window.location.href = 'https://fcosma.it/uno/game?partita=' + document.getElementById('input_id').value;
+ }
+ </script>

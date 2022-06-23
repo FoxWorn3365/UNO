@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="description" content="UNO Online con amici">
+  <meta name="keywords" content="Federico, Cosma, Federico Cosma, Fcosma, Cloud, Fcosma Cloud, PHP">
+  <meta name="author" content="Federico Cosma">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNO | Fcosma Games</title>
+  <script src='https://foundation.fcosma.it/assets/js/http.js'></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdn.rgbcraft.com/static/fontawesome/css/all.min.css">
+ </head>
+ <body id='body'>
+  <div id='game' style='display: none'>
+   <div id='giocatore' class='w3-display-topmiddle' style='margin: auto'>
+    <img id='avversario_mazzo_1' style='display: none;'>
+    <img id='avversario_mazzo_2' style='display: none;'>
+    <img id='avversario_mazzo_3' style='display: none;'>
+    <img id='avversario_mazzo_4' style='display: none;'>
+    <img id='avversario_mazzo_5' style='display: none;'>
+    <img id='avversario_mazzo_6' style='display: none;'>
+    <img id='avversario_mazzo_7' style='display: none;'>
+    <img id='avversario_mazzo_8' style='display: none;'>
+    <img id='avversario_mazzo_9' style='display: none;'>
+    <img id='avversario_mazzo_10' style='display: none;'>
+    <img id='avversario_mazzo_11' style='display: none;'>
+    <img id='avversario_mazzo_12' style='display: none;'>
+    <img id='avversario_mazzo_13' style='display: none;'>
+    <img id='avversario_mazzo_14' style='display: none;'>
+    <img id='avversario_mazzo_15' style='display: none;'>
+    <img id='avversario_mazzo_16' style='display: none;'>
+    <img id='avversario_mazzo_17' style='display: none;'>
+    <img id='avversario_mazzo_18' style='display: none;'>
+    <img id='avversario_mazzo_19' style='display: none;'>
+    <img id='avversario_mazzo_20' style='display: none;'>
+    <img id='avversario_mazzo_21' style='display: none;'>
+    <img id='avversario_mazzo_22' style='display: none;'>
+    <img id='avversario_mazzo_23' style='display: none;'>
+    <img id='avversario_mazzo_24' style='display: none;'>
+    <img id='avversario_mazzo_25' style='display: none;'>
+    <img id='avversario_mazzo_26' style='display: none;'>
+    <img id='avversario_mazzo_27' style='display: none;'>
+    <img id='avversario_mazzo_28' style='display: none;'>
+    <img id='avversario_mazzo_29' style='display: none;'>
+    <img id='avversario_mazzo_30' style='display: none;'>
+    <img id='avversario_mazzo_31' style='display: none;'>
+    <img id='avversario_mazzo_32' style='display: none;'>
+    <img id='avversario_mazzo_33' style='display: none;'>
+    <img id='avversario_mazzo_34' style='display: none;'>
+    <img id='avversario_mazzo_35' style='display: none;'>
+    <img id='avversario_mazzo_36' style='display: none;'>
+    <img id='avversario_mazzo_37' style='display: none;'>
+    <img id='avversario_mazzo_38' style='display: none;'>
+    <img id='avversario_mazzo_39' style='display: none;'>
+    <img id='avversario_mazzo_40' style='display: none;'>
+    <img id='avversario_mazzo_41' style='display: none;'>
+    <img id='avversario_mazzo_42' style='display: none;'>
+    <img id='avversario_mazzo_43' style='display: none;'>
+    <img id='avversario_mazzo_44' style='display: none;'>
+    <img id='avversario_mazzo_45' style='display: none;'>
+    <img id='avversario_mazzo_46' style='display: none;'>
+    <img id='avversario_mazzo_47' style='display: none;'>
+    <img id='avversario_mazzo_48' style='display: none;'>
+    <img id='avversario_mazzo_49' style='display: none;'>
+    <img id='avversario_mazzo_50' style='display: none;'>
+    <img id='avversario_mazzo_51' style='display: none;'>
+    <img id='avversario_mazzo_52' style='display: none;'>
+    <img id='avversario_mazzo_53' style='display: none;'>
+    <img id='avversario_mazzo_54' style='display: none;'>
+    <img id='avversario_mazzo_55' style='display: none;'>
+    <img id='avversario_mazzo_56' style='display: none;'>
+    <img id='avversario_mazzo_57' style='display: none;'>
+   </div>
+   
+   <div id='giocatore_left' class='w3-left' style='display: none'>
+    <span id='giocatore_left_cards'></span>
+   </div>
+
+   <div id='giocatore_right' class='w3-right' style='display: none'>
+    <span id='giocatore_right_cards'></span>
+   </div>
+
+   <div id='mazzo' style='position: absolute; left: 50%; top: 40%'>
+    <img id='carta_mazzo' src='assets/mazzo/0_green.jpg'>
+   </div>
+
+   <div id='giocatore' class='w3-display-bottommiddle' style='margin: auto'>
+    <a onclick='selectCard(1)'><img id='mazzo_1' style='display: none;'></a>
+    <a onclick='selectCard(2)'><img id='mazzo_2' style='display: none;'></a>
+    <a onclick='selectCard(3)'><img id='mazzo_3' style='display: none;'></a>
+    <a onclick='selectCard(4)'><img id='mazzo_4' style='display: none;'></a>
+    <a onclick='selectCard(5)'><img id='mazzo_5' style='display: none;'></a>
+    <a onclick='selectCard(6)'><img id='mazzo_6' style='display: none;'></a>
+    <a onclick='selectCard(7)'><img id='mazzo_7' style='display: none;'></a>
+    <a onclick='selectCard(8)'><img id='mazzo_8' style='display: none;'></a>
+    <a onclick='selectCard(9)'><img id='mazzo_9' style='display: none;'></a>
+    <a onclick='selectCard(10)'><img id='mazzo_10' style='display: none;'></a>
+    <a onclick='selectCard(11)'><img id='mazzo_11' style='display: none;'></a>
+    <a onclick='selectCard(12)'><img id='mazzo_12' style='display: none;'></a>
+    <a onclick='selectCard(13)'><img id='mazzo_13' style='display: none;'></a>
+    <a onclick='selectCard(14)'><img id='mazzo_14' style='display: none;'></a>
+    <a onclick='selectCard(15)'><img id='mazzo_15' style='display: none;'></a>
+    <a onclick='selectCard(16)'><img id='mazzo_16' style='display: none;'></a>
+    <a onclick='selectCard(17)'><img id='mazzo_17' style='display: none;'></a>
+    <a onclick='selectCard(18)'><img id='mazzo_18' style='display: none;'></a>
+    <a onclick='selectCard(19)'><img id='mazzo_19' style='display: none;'></a>
+    <a onclick='selectCard(20)'><img id='mazzo_20' style='display: none;'></a>
+    <a onclick='selectCard(21)'><img id='mazzo_21' style='display: none;'></a>
+    <a onclick='selectCard(22)'><img id='mazzo_22' style='display: none;'></a>
+    <a onclick='selectCard(23)'><img id='mazzo_23' style='display: none;'></a>
+    <a onclick='selectCard(24)'><img id='mazzo_24' style='display: none;'></a>
+    <a onclick='selectCard(25)'><img id='mazzo_25' style='display: none;'></a>
+    <a onclick='selectCard(26)'><img id='mazzo_26' style='display: none;'></a>
+    <a onclick='selectCard(27)'><img id='mazzo_27' style='display: none;'></a>
+    <a onclick='selectCard(28)'><img id='mazzo_28' style='display: none;'></a>
+    <a onclick='selectCard(29)'><img id='mazzo_29' style='display: none;'></a>
+    <a onclick='selectCard(30)'><img id='mazzo_30' style='display: none;'></a>
+    <a onclick='selectCard(31)'><img id='mazzo_31' style='display: none;'></a>
+    <a onclick='selectCard(32)'><img id='mazzo_32' style='display: none;'></a>
+    <a onclick='selectCard(33)'><img id='mazzo_33' style='display: none;'></a>
+    <a onclick='selectCard(34)'><img id='mazzo_34' style='display: none;'></a>
+    <a onclick='selectCard(35)'><img id='mazzo_35' style='display: none;'></a>
+    <a onclick='selectCard(36)'><img id='mazzo_36' style='display: none;'></a>
+    <a onclick='selectCard(37)'><img id='mazzo_37' style='display: none;'></a>
+    <a onclick='selectCard(38)'><img id='mazzo_38' style='display: none;'></a>
+    <a onclick='selectCard(39)'><img id='mazzo_39' style='display: none;'></a>
+    <a onclick='selectCard(40)'><img id='mazzo_40' style='display: none;'></a>
+    <a onclick='selectCard(41)'><img id='mazzo_41' style='display: none;'></a>
+    <a onclick='selectCard(42)'><img id='mazzo_42' style='display: none;'></a>
+    <a onclick='selectCard(43)'><img id='mazzo_43' style='display: none;'></a>
+    <a onclick='selectCard(44)'><img id='mazzo_44' style='display: none;'></a>
+    <a onclick='selectCard(45)'><img id='mazzo_45' style='display: none;'></a>
+    <a onclick='selectCard(46)'><img id='mazzo_46' style='display: none;'></a>
+    <a onclick='selectCard(47)'><img id='mazzo_47' style='display: none;'></a>
+    <a onclick='selectCard(48)'><img id='mazzo_48' style='display: none;'></a>
+    <a onclick='selectCard(49)'><img id='mazzo_49' style='display: none;'></a>
+    <a onclick='selectCard(50)'><img id='mazzo_50' style='display: none;'></a>
+    <a onclick='selectCard(51)'><img id='mazzo_51' style='display: none;'></a>
+    <a onclick='selectCard(52)'><img id='mazzo_52' style='display: none;'></a>
+    <a onclick='selectCard(53)'><img id='mazzo_53' style='display: none;'></a>
+    <a onclick='selectCard(54)'><img id='mazzo_54' style='display: none;'></a>
+    <a onclick='selectCard(55)'><img id='mazzo_55' style='display: none;'></a>
+    <a onclick='selectCard(56)'><img id='mazzo_56' style='display: none;'></a>
+    <a onclick='selectCard(57)'><img id='mazzo_57' style='display: none;'></a>
+   </div>
+   <div id='mazzo' class='w3-center' style='margin: auto; position: absolute; left: 60%; top: 40%' onclick='pesca()'><img src='assets/mazzo/unknow.jpg'></img></div>
+  </div>
+  <div id='welcome' style='text-align: center'>
+   <br>
+   <h1>Benvenuto su UNO!</h1>
+   Interamente creato in JavaScript (Js) da Federico Cosma<br><br><br><br>
+   Per partecipare, inserisci un nome e premi il bottone!<br>
+   <span id='error_label' style='padding: 25px; color: red'></span>
+   <input type='text' id='user'> <button class='w3-button w3-orange w3-text-white' onclick='joinNow()'>Gioca!</button>
+  </div>
+  <div id='wait' style='text-align: center; display: none'>
+   <br>
+   <h1>Fcosma - UNO</h1>
+   <h2 style='color: orange'><b>Attesa giocatori</b></h2>
+   <span>[1/</b>2</b>]</span>
+  </div>
+  <div id='menu' class='w3-display-topleft'>
+   <button id='buttonShow' class='w3-button' onclick='menu("show")'><i class="fa-solid fa-bars"></i></button>
+   <div id='t_menu' style='display: none; padding: 10px'>
+    <div id='menu_btns' class='w3-display-topleft'>
+     <button class='w3-button' onclick='menu("hide")'><i class="fa-solid fa-x"></i></button>
+     <button class='w3-button w3-black w3-text-white' onclick='showDebugInfo()'><i class="fa-solid fa-terminal"></i></button>
+    </div>
+    <br><br>
+    <h3>UNO by FoxWorn3365</h3><br>
+    <span style='font-size: 21px'><b>Giocatori:</b></span><br>
+    <span id='l_giocatore_1'></span><br>
+    <span id='l_giocatore_2'></span><br>
+    <span id='l_giocatore_3'></span>
+   </div>
+  </div>
+  <div id='info' style='display: none; padding: 5px;' class='w3-display-topright'>
+   <h2 style='color: red'>E' il tuo turno!</h2>
+   <span id='todo_1'>Prendi una carta OPPURE</span><br>
+   <span id='todo_2'>Usa una carta o passa il turno pescandone una</span><br>
+  </div>
+  <div id='label' style='display: none; padding: 5px;' class='w3-display-bottomleft'>
+   <h2 style='color: red' id='label_content'></h2>
+  </div>
+  <div id='debug' style='display: none'>
+   <span id='temp_1'></span>
+   <span id='temp_2'></span>
+   <span id='temp_3'></span>
+  </div>
+  <div id='turno' style='background-color: gray; width: 100%; height: 20%; opacity: 0.2' class='w3-display-bottommiddle'></div>
+  <div id='log' style='display: none; background-color: black; width: 100%; height: 100%; color: white'>
+   <button class='w3-button w3-display-topleft w3-black w3-text-white' onclick='hideDebugInfo()'><i class="fa-solid fa-x"></i></button>
+   <span id='log_bucket'></span>
+  </div>
+  <div id='winner' style='display: none; backgound-color: red; width: 100%; height: 100%; color: white' class='w3-red w3-display-middle'>
+   <p id='winner_context'>
+    <br><br><br>
+    <span id='winner_label' style='font-size: 50px'></span>
+    <br><br><br>
+    <h4>Il round verrà resettato tra 5 secondi....</h4>
+   </p>
+  </div>
+ </body>
+ <script src='assets/main.js'></script>
+ <script>
+ document.getElementById('body').addEventListener("load", onLoad());
+
+ function onLoad() {
+   if (getURL() == false) {
+     window.location.href = "https://fcosma.it/uno/?error=notfound";
+   }
+ }
+
+ function menu(doe) {
+   if (doe == "show") {
+     document.getElementById('buttonShow').style.display = "none"; 
+     document.getElementById('t_menu').style.display = "block";
+   } else if (doe == "hide") {
+     document.getElementById('buttonShow').style.display = "block"; 
+     document.getElementById('t_menu').style.display = "none";
+   }
+ }
+
+ var code = getURL();
+ var isStarted = false;
+ var error = 0;
+ if (checkGame(code) == false) {
+   document.getElementById('error_label').innerHTML = "Il game non esiste!";
+ }
+
+ function joinNow() {
+   var input = document.getElementById('user').value;
+   if (input != "") {
+     if (isPlayer(code, input)) {
+       error = 1;
+       document.getElementById('error_label').innerHTML = "Il nickname è già usato!";
+     } else {
+       var playerid = input;
+       document.getElementById('temp_1').innerHTML = playerid;
+       if (!joinStat(code, playerid)) {
+         alert("NON ACCETTATO DAL SERVER PRINCIPALE [api.fcosma.it]");
+       } else {
+         document.getElementById('welcome').style.display = "none";
+         if (!isStart(code)) {
+           document.getElementById('wait').style.display = "block";
+           setInterval(() => { 
+              if (isStart(code) == true) {
+                document.getElementById('wait').style.display = "none";
+                document.getElementById('game').style.display = "block";
+                startGame(playerid);
+                clearInterval();
+              }
+           }, 1000);
+         } else {
+           document.getElementById('game').style.display = "block";
+           startGame(playerid);
+         }
+       }
+     }
+   }
+ }
+       
+ function showDebugInfo() {
+   document.getElementById('log').style.display = "block";
+   document.getElementById('game').style.display = "none";
+ }
+
+ function hideDebugInfo() {
+   document.getElementById('log').style.display = "none";
+   document.getElementById('game').style.display = "block";
+ }
+
+ function startGame(playerid) {
+   // Intanto avviamo il sistema che recupera i nomi dei giocatori
+   var ext = getPlayers(code);
+   for (let a = 0; a < ext.length; a++) {
+     if (ext[a] == playerid) {
+       document.getElementById('l_giocatore_' + (a + 1)).style.color = "green";
+     }
+
+     document.getElementById('l_giocatore_' + (a + 1)).innerHTML = ext[a];
+   }
+   // Eventi della partita
+   // Controlliamo che il player sia in game
+   if (isInGame(code, playerid) == false) {
+     window.location.href = "https://fcosma.it/uno/?error=notingame";
+   }
+ 
+   // Carichiamo le carte al centro
+   setCentro(code);
+
+   // Ora carichiamo il turno
+   if (getTurno(code, playerid)) {
+     document.getElementById('info').style.display = "block";
+     document.getElementById('label_content').innerHTML = "<b>E' il TUO turno!</b>";
+     document.getElementById('label').style.display = "block";
+   } else {
+     document.getElementById('info').style.display = "none";
+     document.getElementById('label_content').innerHTML = "<b>E' il turno dell'avversario!</b>";
+     document.getElementById('label').style.display = "block";
+   }
+ }
+
+ var playerid = getPlayerid();
+ document.getElementById('todo_1').style.color = "black";
+
+ // Evento della carta
+ function pesca() {
+   if (document.getElementById('info').style.display == "block") {
+     pickACard(code, getPlayerid());
+     goTurn(code, getPlayerid());
+   }
+ }
+
+ function selectCard(slot) {
+   if (document.getElementById('info').style.display == "block") {
+     poniCarta(code, getPlayerid(), document.getElementById('mazzo_' + slot).name);
+     goTurn(code, getPlayerid());
+   }
+ }
+
+ // Refresh dell'inventario
+ setInterval(() => { 
+   if (document.getElementById('temp_1').innerHTML != "") {
+     refreshMazzo(code, getPlayerid());
+   }
+ }, 500);
+
+ // Refresh della carta principale
+ setInterval(() => { 
+   if (document.getElementById('temp_1').innerHTML != "") {
+     setCentro(code);
+   }
+ }, 500);
+
+ // Refresh mazzo nemico
+ setInterval(() => { 
+   for (let b = 1; b < 16; b++) {
+     document.getElementById('avversario_mazzo_' + b).style.display = "none";
+   }
+
+   var avvers = getAvversarioCardList(code, getPlayerid());
+   for (let a = 0; a < avvers; a++) {
+     document.getElementById('avversario_mazzo_' + (a+1)).style.display = "inline";
+     document.getElementById('avversario_mazzo_' + (a+1)).src = "assets/mazzo/unknow.jpg";
+   }
+ }, 5000);
+
+ // Refresh del turno
+ setInterval(() => { 
+   if (document.getElementById('temp_1').innerHTML != "") {
+     var res = JSON.parse(http_request('https://api.fcosma.it/uno/turno?id=' + code));
+     if (res.status == 200) {
+       if (res.turno == getPlayerid()) {
+         document.getElementById('info').style.display = "block";
+         document.getElementById('turno').style.display = "none";
+         document.getElementById('label_content').innerHTML = "<b>E' il TUO turno!</b>";
+         document.getElementById('label').style.display = "block";
+       } else {
+         document.getElementById('info').style.display = "none";
+         document.getElementById('label_content').innerHTML = "<b>E' il turno dell'avversario!</b>";
+         document.getElementById('turno').style.display = "block";
+         document.getElementById('label').style.display = "block";
+       }
+     } else {
+       alert("ERRORE DELLA RISPOSTA DEL SERVER!");
+     }
+   } else {
+     document.getElementById('info').style.display = "none";
+     document.getElementById('turno').style.display = "none";
+   }
+ }, 500);
+
+ // Refresh di fine partita
+ setInterval(() => { 
+   if (document.getElementById('temp_1').innerHTML != "") {
+     console.log("IS FINISHED CHECK");
+     if (isFinished(code)) {
+       console.log("OKJK");
+       var winner = getWinner(code);
+       vincitore(code, winner);
+     }
+   }
+ }, 500);
+
+ </script>
